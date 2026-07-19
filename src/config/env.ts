@@ -26,15 +26,15 @@ function readString(value: string | undefined, fallback: string): string {
 export const env: AppEnv = {
   loginUrl: readString(
     import.meta.env.VITE_LOGIN_URL,
-    "http://localhost:3000/login",
+    "https://tgi-kappa.vercel.app/login",
   ),
   dashboardUrl: readString(
     import.meta.env.VITE_USER_DASHBOARD_URL,
-    "http://localhost:3000/dashboard",
+    "https://tgi-kappa.vercel.app/dashboard",
   ),
   registerUrl: readString(
     import.meta.env.VITE_REGISTER_URL,
-    "http://localhost:3000/register",
+    "https://tgi-kappa.vercel.app/register",
   ),
   contactUrl: readString(import.meta.env.VITE_CONTACT_URL, "/contact"),
   contactApiUrl: readString(import.meta.env.VITE_CONTACT_API_URL, ""),
