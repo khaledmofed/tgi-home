@@ -1,0 +1,106 @@
+.wrap {
+  max-width: 860px;
+  margin-inline: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  padding: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .wrap {
+    padding: var(--space-10);
+  }
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+.stepperItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.stepperLabel {
+  font-size: var(--fs-small);
+  color: var(--color-text-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stepperLabelActive {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.stepperTrack {
+  display: flex;
+  align-items: center;
+}
+
+.stepperDot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: var(--color-border-strong);
+  flex-shrink: 0;
+}
+
+.stepperDotActive {
+  background: var(--color-gold);
+  box-shadow: 0 0 0 4px var(--color-gold-soft);
+}
+
+.stepperLine {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border-strong);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .formGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-8);
+  gap: var(--space-3);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.statusMessage {
+  font-size: var(--fs-small);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-6);
+}
+
+.statusSuccess {
+  border-color: rgba(47, 191, 113, 0.4);
+  color: var(--color-success);
+}
+
+.statusError {
+  border-color: rgba(224, 87, 91, 0.4);
+  color: var(--color-danger);
+}

@@ -1,0 +1,94 @@
+/* Absolutely positioned over the hero video instead of pushing it down —
+   anchored to the .page-top wrapper (an in-flow ancestor), so it still
+   scrolls away naturally with the rest of the page. */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  width: 100%;
+  /* Floating inset bar, not edge-to-edge. */
+  padding: 1rem clamp(1rem, 4vw, 3rem) 0;
+  padding-block-start: 12px;
+  padding-block-end: 12px;
+  padding-inline-start: 96px;
+  padding-inline-end: 96px;
+}
+
+/* A floating, rounded glass bar — not a full-bleed transparent strip. */
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: 0.865rem;
+  padding-inline: clamp(1.25rem, 3vw, 24px);
+  border-radius: 8px;
+  background: #0000004d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 10px 30px rgba(0, 0, 0, 0.22);
+  align-items: center;
+}
+
+/* Equal flex-basis on the left/right groups is what makes the nav land at
+   true center regardless of how wide the logo vs. the login/contact/lang
+   group actually are — confirmed by measuring the reference's two side
+   columns at exactly equal width (432px each at 1920px). */
+.left,
+.right {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+  gap: var(--space-5);
+}
+
+.loginLink {
+  display: none;
+  font-size: var(--fs-small);
+  color: var(--color-white);
+  font-weight: 300;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.loginLink:hover {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 1024px) {
+  .loginLink {
+    display: inline-flex;
+  }
+}
+
+.contactButton {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .contactButton {
+    display: inline-flex;
+  }
+}
+
+.langDesktop {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .langDesktop {
+    display: block;
+  }
+}

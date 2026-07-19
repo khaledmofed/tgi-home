@@ -1,0 +1,20 @@
+.logo {
+  display: inline-block;
+  width: auto;
+}
+
+/* 65px wide — measured from the live site's header logo widget. */
+.sm {
+  width: 65px;
+  height: auto;
+}
+
+.lg {
+  width: 84px;
+  height: auto;
+}
+
+/* Approximates brand gold (#d4af37) on the flat-white source asset. */
+.gold {
+  filter: sepia(1) saturate(4) hue-rotate(-10deg) brightness(0.95);
+}

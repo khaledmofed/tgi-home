@@ -1,0 +1,89 @@
+/* Design tokens measured directly from https://www.tgi.gold/ via computed
+   styles during the live-site audit (body bg, text colors, font stack,
+   button radius/padding, letter-spacing) — not eyeballed. The one exception
+   is --color-gold, cross-referenced from TGI's own internal brand palette
+   (#D4AF37) since the public site expresses gold mostly through imagery
+   rather than flat UI color. */
+
+:root {
+  /* Color */
+  --color-bg: #030303;
+  --color-bg-elevated: #0a0a0a;
+  --color-bg-elevated-2: #101010;
+  --color-text: #ffffff;
+  --color-text-muted: #b0b0b0;
+  --color-text-faint: #7a7a7a;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(255, 255, 255, 0.18);
+  --color-gold: #d4af37;
+  --color-gold-soft: rgba(212, 175, 55, 0.16);
+  --color-white: #ffffff;
+  --color-black: #030303;
+  --color-success: #2fbf71;
+  --color-danger: #e0575b;
+
+  /* Typography */
+  --font-heading: "Mundial", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+
+  --fs-eyebrow: clamp(0.8125rem, 0.78rem + 0.15vw, 1rem);
+  --fs-h1: clamp(2.25rem, 1.85rem + 2vw, 3.375rem);
+  --fs-h2: clamp(1.75rem, 1.5rem + 54px, 54px);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --fs-h4: clamp(1.05rem, 1rem + 0.25vw, 1.125rem);
+  --fs-body: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+  --fs-small: 0.875rem;
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.25;
+  --lh-normal: 1.6;
+
+  --ls-heading: -0.02em;
+  --ls-heading-tight: -0.04em;
+
+  /* Radius / borders */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 5rem;
+  --space-16: 6rem;
+  --space-20: 9rem;
+
+  /* Layout — measured from the live site's body sections at 1920px
+     (1200px content width, 360px side margins). */
+  --container-max: 1200px;
+  --container-padding: clamp(1.25rem, 1rem + 2vw, 3rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 640ms;
+
+  /* Header height, measured from the live site (~90.6px at 1920px, using
+     minimal vertical padding around a large logo mark). The header overlays
+     the hero video (see .page-top / .header) rather than pushing it down. */
+  --header-height: 97px;
+
+  /* Z-index scale */
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-popup: 300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}

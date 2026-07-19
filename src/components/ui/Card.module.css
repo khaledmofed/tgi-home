@@ -1,0 +1,40 @@
+/* Measured from the live site's shared "container colors" card style:
+   16px radius, translucent grey fill (not solid), 0.5px light-grey border. */
+.card {
+  background: rgba(36, 36, 36, 0.3);
+  border: 0.5px solid var(--color-text-muted);
+  border-radius: 16px;
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+
+.card:hover {
+  background: rgba(36, 36, 36, 0.65);
+}
+
+.padded {
+  padding: var(--space-6);
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .grid2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

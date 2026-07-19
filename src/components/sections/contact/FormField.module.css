@@ -1,0 +1,75 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}
+
+.required {
+  color: var(--color-gold);
+  margin-left: 0.15rem;
+}
+
+.control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border-strong);
+  padding: 0.5rem 0.1rem;
+  color: var(--color-text);
+  font-size: var(--fs-body);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.control:focus-visible {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.control::placeholder {
+  color: var(--color-text-faint);
+}
+
+.controlInvalid {
+  border-color: var(--color-danger);
+}
+
+.error {
+  font-size: 0.75rem;
+  color: var(--color-danger);
+}
+
+.selectWrap {
+  position: relative;
+}
+
+.selectWrap select {
+  width: 100%;
+  appearance: none;
+}
+
+.selectChevron {
+  position: absolute;
+  right: 0.1rem;
+  top: 0.5rem;
+  pointer-events: none;
+  color: var(--color-text-faint);
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.checkboxRow input {
+  margin-top: 0.2rem;
+}
+
+.checkboxLabel {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,29 @@
+.nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    /* Measured from the live site: ~68px between nav item baselines at 1920px. */
+    gap: 4.25rem;
+  }
+}
+
+.link {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  padding: 0.3rem 0;
+  position: relative;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--color-white);
+}
+
+.linkActive {
+  color: var(--color-white);
+  font-weight: 600;
+}

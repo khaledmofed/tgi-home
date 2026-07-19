@@ -1,0 +1,72 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  /* Measured from the live site: the image stretches to match the text
+     column's full height (top-aligned with the heading, bottom-aligned
+     with the button) — not vertically centered and shorter. */
+  align-items: stretch;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  /* Measured from the live site: a divider above the first row too, not
+     just between/after rows. */
+  border-top: 0.5px solid #444444;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  /* Measured from the live site: 0.5px solid #444, not the shared
+     translucent-white border used elsewhere. */
+  border-bottom: 0.5px solid #444444;
+}
+
+.itemIndex {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-text-faint);
+  font-size: var(--fs-small);
+}
+
+.itemLabel {
+  font-family: var(--font-heading);
+  font-size: var(--fs-body);
+}
+
+/* Measured from the live site: this title uses hero-scale type
+   (main-heading, 54px), not the shared section-title size. */
+.bigTitle {
+  font-size: var(--fs-h1);
+}
+
+.imageWrap {
+  /* Measured from the live site: 30px, not the shared 8px card radius. */
+  border-radius: 30px;
+  overflow: hidden;
+  /* A solid black device frame, not a thin translucent hairline. */
+  border: 10px solid #000000;
+  background: #000000;
+  min-height: 360px;
+  height: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.imageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Measured from the live site: background-position: center left — the
+     dashboard's left-hand panels stay in frame, not centered/cropped. */
+  object-position: left center;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

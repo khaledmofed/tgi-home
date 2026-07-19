@@ -1,0 +1,86 @@
+/* Cancels main's header-height top padding so the video starts at the very
+   top of the page, behind the absolutely-positioned header (matches the
+   reference, where the hero video's box starts at y≈0, not below the
+   header). Content padding below compensates so text position is unchanged. */
+.wrap {
+  position: relative;
+  overflow: hidden;
+  /* Measured from the live site's own CSS: height: 85vh on desktop,
+     100vh on mobile (<=767px, see below) — not a fixed pixel value. */
+  min-height: 85vh;
+  margin-top: calc(-1 * var(--header-height));
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  .wrap {
+    min-height: 100vh;
+  }
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Measured from the live site: a flat 65%-opacity black overlay, not a
+   gradient fade. */
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Top-aligned, not centered — the reference positions hero content via a
+     fixed top offset, not by vertically centering within the (taller)
+     video block, so extra hero height reads as bottom breathing room. */
+  justify-content: flex-start;
+  text-align: center;
+  padding-top: calc(var(--header-height) + var(--space-16));
+  padding-bottom: var(--space-10);
+}
+
+.title {
+  font-size: var(--fs-h1);
+  font-weight: 300;
+  letter-spacing: var(--ls-heading-tight);
+  /* Measured on the live site: line-height equals font-size exactly (54px/54px). */
+  line-height: 1;
+  margin-block: var(--space-2) var(--space-4);
+}
+
+.subtitle {
+  max-width: 34rem;
+  margin-inline: auto;
+  color: var(--color-text-muted);
+  font-size: var(--fs-body);
+}
+
+/* Confirmed on the live site: the hero CTA row is hidden below 768px
+   (computed display:none on mobile, display:flex from 768px up) — a
+   deliberate mobile simplification, not a rendering gap. */
+.actions {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .actions {
+    display: flex;
+  }
+}

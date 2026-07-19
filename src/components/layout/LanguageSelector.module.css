@@ -1,0 +1,87 @@
+.wrap {
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  padding: 0.4rem 0.2rem;
+}
+
+.chevron {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.chevronOpen {
+  transform: rotate(90deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: 220px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: var(--color-bg-elevated-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  z-index: var(--z-popup);
+}
+
+.menuLight {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #121212;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  text-align: left;
+}
+
+.option:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.menuLight .option:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.option:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.optionActive {
+  color: var(--color-gold);
+}
+
+.flag {
+  font-size: 1.1rem;
+}
+
+.unavailableTag {
+  margin-left: auto;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-faint);
+}

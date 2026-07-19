@@ -1,0 +1,17 @@
+# SPA fallback for Apache / cPanel hosting.
+# Any request that isn't an existing file or directory gets served index.html
+# so React Router can handle the route client-side (fixes 404s on refresh
+# for deep links like /products or /privacy-policy).
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Let real files/directories (assets, images, videos) pass through.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Everything else falls back to index.html.
+  RewriteRule ^ index.html [L]
+</IfModule>
